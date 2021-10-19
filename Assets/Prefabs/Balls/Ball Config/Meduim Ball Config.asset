@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2d46c24d7aa1745a945b4536be747c, type: 3}
+  m_Name: Meduim Ball Config
+  m_EditorClassIdentifier: 
+  ballsPrefab: []
+  moveSpeedX: 1.5
+  moveSpeedY: 9
+  ballRb: {fileID: 8608102713431104682, guid: 739b208c0357fba46a85865f9c87d3e7, type: 3}
+  ballColiider: {fileID: 8608102713431104683, guid: 739b208c0357fba46a85865f9c87d3e7,
+    type: 3}
+  ballStats: 2

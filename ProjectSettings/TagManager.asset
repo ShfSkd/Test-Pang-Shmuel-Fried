@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - BiggestBall
+  - BigBall
+  - MeduimBall
+  - SmallBall
+  - Ground
+  - LeftWall
+  - RigthWall
+  - Weapon
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Weapon
+  - Player
+  - Border
+  - Ball
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2894725137
+    locked: 0
+  - name: Borders
+    uniqueID: 1582169817
+    locked: 0
+  - name: Balls
+    uniqueID: 4193600045
+    locked: 0
+  - name: Player
+    uniqueID: 1764205575
+    locked: 0
