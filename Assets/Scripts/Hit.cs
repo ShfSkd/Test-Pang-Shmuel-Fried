@@ -32,9 +32,9 @@ public class Hit : MonoBehaviour
 	{
 		BallHandler ball = other.GetComponent<BallHandler>();
 
-		if (ball != null)
+		if (ball != null && player.isAlive)
 		{
-			audioPlayer.PlayDamageClip();
+			audioPlayer.PlayDeadClip();
 			PlayHitEffect();
 			Die();
 		}
