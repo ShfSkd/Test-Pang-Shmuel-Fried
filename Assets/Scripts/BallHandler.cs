@@ -13,11 +13,13 @@ public class BallHandler : MonoBehaviour
     BallHandler ballHandler1, ballHandler2;
     Rigidbody2D rb;
 	ScoreKeeper scoreKeeper;
+	AudioPlayer audioPlayer;
 
 	private void Awake()
 	{
 		scoreKeeper = FindObjectOfType<ScoreKeeper>();
 		rb = GetComponent<Rigidbody2D>();
+		audioPlayer = FindObjectOfType<AudioPlayer>();
 	}
 	private void Start()
 	{
@@ -122,20 +124,16 @@ public class BallHandler : MonoBehaviour
 			{
 				ChangeBallsWhenHit();
 				scoreKeeper.ModifyScore(score);
+				audioPlayer.PlayDamageClip();
 			}
 			else
 			{
 				gameObject.SetActive(false); 
 				scoreKeeper.ModifyScore(score);
+				audioPlayer.PlayDamageClip();
 			}
 		}
 	}
 	
-	/*private void OnCollisionEnter2D(Collision2D other)
-	{
-		if (other.gameObject.CompareTag(Tags.Ground))
-		{
-			rb.velocity = new Vector2(0, forceY);
-		}
-	}*/
+
 }

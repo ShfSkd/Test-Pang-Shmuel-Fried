@@ -8,15 +8,16 @@ public class Hit : MonoBehaviour
 	[SerializeField] ParticleSystem hitEffect;
 	[SerializeField] Vector2 dethKick = new Vector2(10, 10);
 	[SerializeField] bool isPlayer;
-	[SerializeField] int score = 50;
 	Player player;
 
 	LevelManager levelManager;
+	AudioPlayer audioPlayer;
 
 	private void Awake()
 	{
 		player = GetComponent<Player>();
 		levelManager = FindObjectOfType<LevelManager>();
+		audioPlayer = FindObjectOfType<AudioPlayer>();
 	}
 
 	void PlayHitEffect()
@@ -33,6 +34,7 @@ public class Hit : MonoBehaviour
 
 		if (ball != null)
 		{
+			audioPlayer.PlayDamageClip();
 			PlayHitEffect();
 			Die();
 		}
@@ -48,7 +50,7 @@ public class Hit : MonoBehaviour
 
 			player.isAlive = false;
 			rb.velocity = dethKick;
-			animator.SetTrigger("Die");
+			animator.SetTrigger(AnimationTags.DIE);
 			levelManager.LoadGameOver();
 		}
 	}

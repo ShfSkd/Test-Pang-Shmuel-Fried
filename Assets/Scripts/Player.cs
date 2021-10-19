@@ -10,22 +10,22 @@ public class Player : MonoBehaviour
 	[SerializeField] GameObject weaponPrefab;
 	[SerializeField] float offsetWeapon;
 	[SerializeField] ParticleSystem hitEffect;
-	
 	[SerializeField] bool isUseTouch;
+	
 	public Joystick joystick;
 
 	public bool isAlive = true;
 	Vector2 moveInput;
 	Rigidbody2D rb;
 	Animator anim;
-	CapsuleCollider2D myBodyCollider;
 	bool canWalk;
 	bool canShoot;
+	AudioPlayer audioPlayer;
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponentInChildren<Animator>();
-		myBodyCollider = GetComponent<CapsuleCollider2D>();
+		audioPlayer = FindObjectOfType<AudioPlayer>();
 	}
 	private void Start()
 	{
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
 			if (joystick.Horizontal == 0)
 			{
 				if (anim != null)
-					anim.SetBool("isRunning", false);
+					anim.SetBool(AnimationTags.IS_RUNINIG, false);
 			}
 			moveInput.x = joystick.Horizontal;
 
@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
 			bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
 
 			if (anim != null)
-				anim.SetBool("isRunning", playerHasHorizontalSpeed);
+				anim.SetBool(AnimationTags.IS_RUNINIG, playerHasHorizontalSpeed);
 		}
 
 
@@ -115,7 +115,8 @@ public class Player : MonoBehaviour
 	private IEnumerator ShootWeapon()
 	{
 		canWalk = false;
-		anim.SetBool("isShooting", true);
+		anim.SetBool(AnimationTags.IS_SHOOTING, true);
+		audioPlayer.PlayShootingClip();
 
 		Vector3 temp = transform.position;
 
@@ -125,7 +126,7 @@ public class Player : MonoBehaviour
 
 
 		yield return new WaitForSeconds(0.2f);
-		anim.SetBool("isShooting", false);
+		anim.SetBool(AnimationTags.IS_SHOOTING, false);
 		canWalk = true;
 
 		yield return new WaitForSeconds(0.3f);

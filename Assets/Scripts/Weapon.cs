@@ -27,4 +27,11 @@ public class Weapon : MonoBehaviour
 			Destroy(gameObject);
 		}
 	}
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.GetComponent<BallHandler>())
+		{
+			Destroy(gameObject);
+		}
+	}
 }

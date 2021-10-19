@@ -15,16 +15,16 @@ public class LevelManager : MonoBehaviour
 	}
 	public void LoadGame()
 	{
-		SceneManager.LoadScene("Level 1");
+		SceneManager.LoadScene(ScenesTags.Level_1);
 		scoreKeeper.ResetScore();
 	}
 	public void LoadMainMenu()
 	{
-		SceneManager.LoadScene("MainMenu");
+		SceneManager.LoadScene(ScenesTags.MAIN_MENU);
 	}
 	public void LoadGameOver()
 	{
-		StartCoroutine(WaitAndLoad("Game Over", sceneLoadDealy));
+		StartCoroutine(WaitAndLoad(ScenesTags.GAME_OVER, sceneLoadDealy));
 	}
 	public void QuitGame()
 	{
