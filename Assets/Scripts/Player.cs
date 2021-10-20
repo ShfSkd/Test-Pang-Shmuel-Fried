@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 
 	[HideInInspector]
 	public bool isAlive = true;
+	public static GameObject weaponTail;
+	public static Player instance;
 
 	Vector2 moveInput;
 	Rigidbody2D rb;
@@ -28,6 +30,8 @@ public class Player : MonoBehaviour
 	AudioPlayer audioPlayer;
 	private void Awake()
 	{
+		if (instance == null)
+			instance = this;
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponentInChildren<Animator>();
 		audioPlayer = FindObjectOfType<AudioPlayer>();
@@ -138,6 +142,7 @@ public class Player : MonoBehaviour
 		temp.y += transform.GetChild(0).position.y + offsetWeapon;
 
 		GameObject weapon = Instantiate(weaponPrefab, temp, Quaternion.identity);
+		weaponTail = weapon;
 
 		yield return new WaitForSeconds(0.2f);
 		anim.SetBool(AnimationTags.IS_SHOOTING, false);

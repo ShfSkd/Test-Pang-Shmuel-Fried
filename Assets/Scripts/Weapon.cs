@@ -23,6 +23,7 @@ public class Weapon : MonoBehaviour
 		}
 		else
 		{
+			Player.weaponTail = null;
 			Destroy(gameObject);
 		}
 	}
@@ -30,6 +31,7 @@ public class Weapon : MonoBehaviour
 	{
 		if (other.gameObject.GetComponent<BallHandler>())
 		{
+			Player.weaponTail = null;
 			Destroy(gameObject);
 		}
 	}
