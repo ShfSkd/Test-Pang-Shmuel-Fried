@@ -13,9 +13,6 @@ public class ScoreKeeper : MonoBehaviour
 
 	private void ManageSingleton()
 	{
-		/*int instanceCount= FindObjectsOfType(GetType()).Length;
-		if (instanceCount > 1)
-		{*/
 		if (instance != null)
 		{
 			gameObject.SetActive(false);

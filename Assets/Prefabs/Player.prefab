@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 97b8745dd0d6595469695308e5ed5cbe,
+  m_Actions: {fileID: -944628639613478452, guid: 67fcafe0a42a4484da8ffba350886d38,
     type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -203,8 +203,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06107363, y: -0.13378036}
-  m_Size: {x: 0.62214726, y: 1.2675607}
+  m_Offset: {x: 0.06107363, y: -0.09036076}
+  m_Size: {x: 0.4834394, y: 0.8491099}
   m_Direction: 0
 --- !u!114 &8379646333629235474
 MonoBehaviour:
@@ -218,10 +218,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d574faee047252469caaf6991a35cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 10
   weaponPrefab: {fileID: 3317248255573622637, guid: d5c05e0d1d6acf04da273cd112def69f,
     type: 3}
-  offsetWeapon: 3
+  offsetWeapon: 4
+  hitEffect: {fileID: 1535842254851450787, guid: 61a826d676958174bac04ded69cd2c61,
+    type: 3}
+  isUseTouch: 1
+  fireButton: {fileID: 0}
+  joystick: {fileID: 0}
+  isAlive: 1
 --- !u!114 &1053306146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778f2703c931c1241af32a9808e36f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  score: 50
   hitEffect: {fileID: 1535842254851450787, guid: 61a826d676958174bac04ded69cd2c61,
     type: 3}
+  dethKick: {x: 10, y: 5}
+  isPlayer: 1

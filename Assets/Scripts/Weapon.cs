@@ -23,7 +23,6 @@ public class Weapon : MonoBehaviour
 		}
 		else
 		{
-
 			Destroy(gameObject);
 		}
 	}

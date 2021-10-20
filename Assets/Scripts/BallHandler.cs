@@ -14,12 +14,14 @@ public class BallHandler : MonoBehaviour
     Rigidbody2D rb;
 	ScoreKeeper scoreKeeper;
 	AudioPlayer audioPlayer;
+	LevelManager levelManager;
 
 	private void Awake()
 	{
 		scoreKeeper = FindObjectOfType<ScoreKeeper>();
 		rb = GetComponent<Rigidbody2D>();
 		audioPlayer = FindObjectOfType<AudioPlayer>();
+		levelManager = FindObjectOfType<LevelManager>();
 	}
 	private void Start()
 	{
@@ -120,6 +122,7 @@ public class BallHandler : MonoBehaviour
 		}
 		if (other.gameObject.CompareTag(Tags.WEAPON))
 		{
+			levelManager.ballsCount--;
 			if (!gameObject.CompareTag(Tags.SMALL_BALL))
 			{
 				ChangeBallsWhenHit();
@@ -134,6 +137,26 @@ public class BallHandler : MonoBehaviour
 			}
 		}
 	}
-	
+	public int GetBallsCount()
+	{
+		int scoreBalls = 0;
+		switch (gameObject.tag)
+		{
+			case (Tags.BIGGEST_BALL):
+				scoreBalls = 7;
+				break;
+			case (Tags.BIG_BALL):
+				scoreBalls = 5;
+				break;
+			case (Tags.MEDUIM_BALL):
+				scoreBalls = 3;
+				break;
+			case (Tags.SMALL_BALL):
+				scoreBalls = 1;
+				break;
+
+		}
+		return scoreBalls;
+	}
 
 }

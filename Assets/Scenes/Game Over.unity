@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 861104580}
   - component: {fileID: 861104579}
   m_Layer: 5
-  m_Name: Retray Button
+  m_Name: Retry Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -660,7 +660,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 628582534}
-        m_MethodName: LoadGame
+        m_MethodName: RetryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

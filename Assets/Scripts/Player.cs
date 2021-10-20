@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,16 +11,20 @@ public class Player : MonoBehaviour
 	[SerializeField] GameObject weaponPrefab;
 	[SerializeField] float offsetWeapon;
 	[SerializeField] ParticleSystem hitEffect;
-	[SerializeField] bool isUseTouch;
-	
-	public Joystick joystick;
 
+	[Header("Touch Settings")]
+	[SerializeField] bool isUseTouch;
+	[SerializeField] Button fireButton;  
+	[SerializeField] Joystick joystick;
+
+	[HideInInspector]
 	public bool isAlive = true;
+
 	Vector2 moveInput;
 	Rigidbody2D rb;
 	Animator anim;
 	bool canWalk;
-	bool canShoot;
+	public static bool canShoot;
 	AudioPlayer audioPlayer;
 	private void Awake()
 	{
@@ -29,6 +34,16 @@ public class Player : MonoBehaviour
 	}
 	private void Start()
 	{
+		if (isUseTouch)
+		{
+			joystick.gameObject.SetActive(true);
+			fireButton.gameObject.SetActive(true);
+		}
+		else
+		{
+			joystick.gameObject.SetActive(false);
+			fireButton.gameObject.SetActive(false);
+		}
 		canWalk = true;
 		canShoot = true;
 	}
@@ -123,7 +138,6 @@ public class Player : MonoBehaviour
 		temp.y += transform.GetChild(0).position.y + offsetWeapon;
 
 		GameObject weapon = Instantiate(weaponPrefab, temp, Quaternion.identity);
-
 
 		yield return new WaitForSeconds(0.2f);
 		anim.SetBool(AnimationTags.IS_SHOOTING, false);
